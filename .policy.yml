@@ -1,0 +1,17 @@
+# the high level policy
+policy:
+  approval:
+    - or:
+      - engineering_approved
+  disapproval:
+    requires:
+      organizations:
+        - "cloudposse"
+
+# the list of rules
+approval_rules:
+  - name: engineering_approved
+    requires:
+      count: 1
+      teams:
+        - "cloudposse/engineering"
